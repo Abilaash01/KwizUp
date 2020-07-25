@@ -25,10 +25,13 @@ import android.widget.TextView;
 /*
     This class is the main menu allowing
     the user to either start the game,
-    open up the help menu or
+    or quit the game. It has an engaging
+    and colourful background as so that
+    it doesn't look dull for the players.
  */
 
 public class MainActivity extends AppCompatActivity {
+    // Define the buttons and variable to store the user's score
     public static long totalScore;
     Button startButton, exitButton;
 
@@ -37,24 +40,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize the user's score to 0 every time the user starts the game
         totalScore = 0;
 
+        // Initialize the buttons to map it to the XML code so you can use certain button commands
         startButton = (Button) findViewById(R.id.start);
         exitButton = (Button) findViewById(R.id.exit);
 
+        // Whenever the user clicks on the start button do this
         startButton.setOnClickListener((v) -> {
+
+            // Start up the game (switch activity to the game class) and close this activity
             Intent d = new Intent(MainActivity.this, game.class);
             startActivity(d);
             this.finish();
         });
 
+        // Whenever the user clicks on the start button do this
         exitButton.setOnClickListener((v) -> {
+
+            // Close this and every activity that came before this
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("EXIT", true);
             startActivity(intent);
         });
 
+        // Check for any open activities and close them all
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
