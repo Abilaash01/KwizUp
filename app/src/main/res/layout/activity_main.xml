@@ -29,8 +29,8 @@
 
     <Button
         android:id="@+id/start"
-        android:layout_width="124dp"
-        android:layout_height="63dp"
+        android:layout_width="189dp"
+        android:layout_height="95dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -39,25 +39,14 @@
         android:text="Start" />
 
     <Button
-        android:id="@+id/help"
-        android:layout_width="124dp"
-        android:layout_height="63dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/questionbox"
-        android:text="Help" />
-
-    <Button
         android:id="@+id/exit"
-        android:layout_width="124dp"
-        android:layout_height="63dp"
-        android:background="@drawable/questionbox"
-        android:layout_gravity="center"
-        android:layout_marginTop="45dp"
+        android:layout_width="189dp"
+        android:layout_height="95dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="251dp"
+        android:background="@drawable/questionbox"
         android:text="Exit" />
 </LinearLayout>

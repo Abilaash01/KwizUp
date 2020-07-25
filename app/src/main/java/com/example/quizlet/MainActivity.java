@@ -1,3 +1,15 @@
+/*
+    Author: Abilaash Uthayachandran
+    Date: 07/24/2020
+
+    This is a simple math quiz game program
+    for kids. It has a timer to countdown
+    for 30 seconds and after 30 seconds a
+    score will pop up as the user's final
+    score before giving the option to go back
+    to the main menu or try again.
+ */
+
 package com.example.quizlet;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +22,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/*
+    This class is the main menu allowing
+    the user to either start the game,
+    open up the help menu or
+ */
+
 public class MainActivity extends AppCompatActivity {
     public static long totalScore;
-    Button startButton, helpButton, exitButton;
+    Button startButton, exitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +40,9 @@ public class MainActivity extends AppCompatActivity {
         totalScore = 0;
 
         startButton = (Button) findViewById(R.id.start);
-        helpButton = (Button) findViewById(R.id.help);
         exitButton = (Button) findViewById(R.id.exit);
 
         startButton.setOnClickListener((v) -> {
-            Intent d = new Intent(MainActivity.this, game.class);
-            startActivity(d);
-            this.finish();
-        });
-
-        helpButton.setOnClickListener((v) -> {
             Intent d = new Intent(MainActivity.this, game.class);
             startActivity(d);
             this.finish();
