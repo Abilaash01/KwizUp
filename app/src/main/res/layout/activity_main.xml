@@ -21,7 +21,7 @@
         android:layout_marginLeft="75dp"
         android:layout_marginTop="126dp"
         android:gravity="center_horizontal"
-        android:text="Welcome To Quizlet"
+        android:text="Welcome To KwizUp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="36dp"
