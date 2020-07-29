@@ -133,6 +133,5 @@ will be there.
 
 SUGGESTED DOWNLOADS
 -------------------
-
 Link to Android Studio download: https://developer.android.com/studio/
 Link to Java JDK download: https://www.oracle.com/java/technologies/javase-downloads.html
