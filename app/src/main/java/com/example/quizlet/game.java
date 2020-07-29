@@ -131,9 +131,13 @@ public class game extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Set up the new question
-                    newQuestion();
-                    setUp();
+                    if(secondsRemaining == 0) {
+
+                    } else {
+                        // Set up the new question
+                        newQuestion();
+                        setUp();
+                    }
                 }
             }, 800);
         });
@@ -173,9 +177,13 @@ public class game extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Set up the new question
-                    newQuestion();
-                    setUp();
+                    if(secondsRemaining == 0) {
+
+                    } else {
+                        // Set up the new question
+                        newQuestion();
+                        setUp();
+                    }
                 }
             }, 800);
         });
@@ -215,9 +223,13 @@ public class game extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Set up the new question
-                    newQuestion();
-                    setUp();
+                    if(secondsRemaining == 0) {
+
+                    } else {
+                        // Set up the new question
+                        newQuestion();
+                        setUp();
+                    }
                 }
             }, 800);
         });
@@ -257,9 +269,13 @@ public class game extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    // Set up the new question
-                    newQuestion();
-                    setUp();
+                    if(secondsRemaining == 0) {
+
+                    } else {
+                        // Set up the new question
+                        newQuestion();
+                        setUp();
+                    }
                 }
             }, 800);
         });
@@ -327,8 +343,8 @@ public class game extends AppCompatActivity {
 
             handler.postDelayed(new Runnable() {
                 @Override
-                // Start the new page
                 public void run() {
+                    // Reset score and disable choice buttons and enable try again and main menu buttons
                     MainActivity.totalScore = 0;
                     t.setEnabled(true);
                     b.setEnabled(true);
@@ -341,6 +357,7 @@ public class game extends AppCompatActivity {
                     t.setVisibility(View.VISIBLE);
                     b.setVisibility(View.VISIBLE);
 
+                    // Reset timer and score
                     t.setOnClickListener((v) -> {
                         secondsRemaining = 30;
                         MainActivity.totalScore = 0;
@@ -350,6 +367,7 @@ public class game extends AppCompatActivity {
                         countDownTimer.start();
                     });
 
+                    // Start new page and delete current activity
                     b.setOnClickListener((v) -> {
                         Intent i = new Intent(game.this, MainActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -366,15 +384,18 @@ public class game extends AppCompatActivity {
 
     // Create a new question
     private void newQuestion() {
+        // Choose random number between 0 and 11
         q1 = random.nextInt(11);
         q2 = random.nextInt(11);
 
+        // Display current score
         if(MainActivity.totalScore > 0) {
             sc.setText("Score: " + Long.toString(MainActivity.totalScore));
         } else {
             sc.setText("Score: 0");
         }
 
+        // Get random error value for the wrong choices
         error1 = random.nextInt(5);
         error2 = random.nextInt(10);
         error3 = random.nextInt(3);
@@ -385,6 +406,7 @@ public class game extends AppCompatActivity {
             error3 = random.nextInt(3);
         }
 
+        // Choose add or subtraction
         c = random.nextInt(2);
 
         if(c == 0) {
@@ -393,11 +415,13 @@ public class game extends AppCompatActivity {
             solution = q1 + q2;
         }
 
+        // Set up the choices and the correct answer
         mcq[0] = Integer.toString(solution);
         mcq[1] = Integer.toString(solution + error1);
         mcq[2] = Integer.toString(solution - error2);
         mcq[3] = Integer.toString(solution - error3);
 
+        // Shuffle the choices
         shuffleArray(mcq);
 
         c1.setText(mcq[0]);
@@ -406,7 +430,12 @@ public class game extends AppCompatActivity {
         c4.setText(mcq[3]);
     }
 
+
+    /*
+        Set up the buttons and score and all visual UI
+     */
     private void setUp() {
+        // Disable the endgame buttons and enable the choice buttons
         c1.setEnabled(true);
         c2.setEnabled(true);
         c3.setEnabled(true);
@@ -422,11 +451,13 @@ public class game extends AppCompatActivity {
         t.setVisibility(View.INVISIBLE);
         b.setVisibility(View.INVISIBLE);
 
+        // Set a white background for the choices
         c1.setBackgroundColor(Color.parseColor("#FFFFFF"));
         c2.setBackgroundColor(Color.parseColor("#FFFFFF"));
         c3.setBackgroundColor(Color.parseColor("#FFFFFF"));
         c4.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
+        // Display question
         if(c == 0) {
             txt.setText("What is " + q1 + " - " + q2 + "?");
         } else if(c == 1) {
