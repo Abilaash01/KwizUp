@@ -15,3 +15,10 @@ relating to the timer can be seen in the countDownTimer method on line 315.
 
 Whenever you want to add new buttons or textViews, be sure to add them using the .xml file corresponding to the
 correct java file it's linked to.
+
+
+DOWNLOAD
+--------
+To find the necessary files to update, go to app -> src -> main -> java/com/example/quizlet and there you will see
+the 2 java files. Then, when you want to check the xml files go to app -> src -> main -> res and all the files
+will be there.
